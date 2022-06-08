@@ -105,35 +105,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// membaca semua data
-router.get("/all", async (req, res) => {
-  try {
-    const getAllUsers = await Users.findAll({});
-    res.status(200).json({
-      data: getAllUsers,
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("server error");
-  }
-});
-
-// membaca data users
-router.get("/:name", async (req, res) => {
-  try {
-    const nameUser = req.params.name;
-    const getUser = await Users.findOne({
-      where: { name: nameUser },
-    });
-    res.status(200).json({
-      data: getUser,
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("server error");
-  }
-});
-
 // delete data
 router.delete("/delete/:id", async (req, res) => {
   try {
