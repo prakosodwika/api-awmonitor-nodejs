@@ -39,7 +39,7 @@ router.post("/registrasi", async (req, res) => {
     });
     if (valEmail.length != 0) {
       return res.status(400).json({
-        message: "email telah digunakan",
+        message: "Email telah digunakan",
       });
     }
 
@@ -53,7 +53,7 @@ router.post("/registrasi", async (req, res) => {
     });
 
     res.status(200).json({
-      message: "Success",
+      message: "Registrasi Success",
     });
   } catch (err) {
     console.error(err.message);
@@ -88,7 +88,7 @@ router.post("/login", async (req, res) => {
     if (account) {
       if (decryptPassword(password, account.password)) {
         return res.status(200).json({
-          massage: "Success",
+          massage: "Login Success",
           data: user,
         });
       }
@@ -114,7 +114,7 @@ router.delete("/delete/:id", async (req, res) => {
     });
     await deleteUsers;
     res.status(200).json({
-      status: "delete success",
+      status: "Delete success",
     });
   } catch (err) {
     console.error(err.message);

@@ -146,7 +146,7 @@ router.delete("/delete/:id", async (req, res) => {
     });
     await deleteHistory;
     res.status(200).json({
-      status: "delete success",
+      status: "Delete success",
     });
   } catch (err) {
     console.error(err.message);
