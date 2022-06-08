@@ -5,10 +5,11 @@ const Validator = require("fastest-validator");
 const v = new Validator();
 
 // membaca semua data
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
     const getAllHistory = await History.findAll({});
-    res.json({
+    res.status(200).json({
+      message: "Success",
       data: getAllHistory,
     });
   } catch (err) {
@@ -59,9 +60,8 @@ router.post("/input", async (req, res) => {
     });
 
     await newHistory.save();
-    res.json({
-      status: 200,
-      message: "Success",
+    res.status(200).json({
+      message: "Input Success",
       data: newHistory,
     });
   } catch (err) {
@@ -76,7 +76,8 @@ router.get("/kota", async (req, res) => {
     const getAllKota = await History.findAll({
       attributes: ["location"],
     });
-    res.json({
+    res.status(200).json({
+      message: "Success",
       data: getAllKota,
     });
   } catch (err) {
@@ -92,7 +93,8 @@ router.get("/kota/:namaKota", async (req, res) => {
     const getKota = await History.findOne({
       where: { location: namaKota },
     });
-    res.json({
+    res.status(200).json({
+      message: "Success",
       data: getKota,
     });
   } catch (err) {
@@ -126,7 +128,7 @@ router.put("/edit/:id", async (req, res) => {
       }
     );
     await updateHistory;
-    res.json({
+    res.status(200).json({
       status: "Edit success",
     });
   } catch (err) {
@@ -143,7 +145,7 @@ router.delete("/delete/:id", async (req, res) => {
       where: { id: id },
     });
     await deleteHistory;
-    res.json({
+    res.status(200).json({
       status: "delete success",
     });
   } catch (err) {

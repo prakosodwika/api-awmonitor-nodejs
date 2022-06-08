@@ -15,7 +15,7 @@ decryptPassword = (plainPassword, hashFromDB) => {
   return bcrypt.compareSync(plainPassword, hashFromDB);
 };
 
-// create account
+// registrasi
 router.post("/registrasi", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -52,10 +52,8 @@ router.post("/registrasi", async (req, res) => {
       password: hashedPassword,
     });
 
-    res.json({
-      status: 200,
+    res.status(200).json({
       message: "Success",
-      data: newUsers,
     });
   } catch (err) {
     console.error(err.message);
@@ -90,6 +88,7 @@ router.post("/login", async (req, res) => {
     if (account) {
       if (decryptPassword(password, account.password)) {
         return res.status(200).json({
+          massage: "Success",
           data: user,
         });
       }
@@ -110,7 +109,7 @@ router.post("/login", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     const getAllUsers = await Users.findAll({});
-    res.json({
+    res.status(200).json({
       data: getAllUsers,
     });
   } catch (err) {
@@ -126,7 +125,7 @@ router.get("/:name", async (req, res) => {
     const getUser = await Users.findOne({
       where: { name: nameUser },
     });
-    res.json({
+    res.status(200).json({
       data: getUser,
     });
   } catch (err) {
@@ -134,31 +133,6 @@ router.get("/:name", async (req, res) => {
     res.status(500).send("server error");
   }
 });
-
-// edit data
-// router.put("/edit/:id", async (req, res) => {
-//   try {
-//     const { name, email, password } = req.body;
-//     const id = req.params.id;
-//     const updateUsers = await Users.update(
-//       {
-//         name,
-//         email,
-//         password,
-//       },
-//       {
-//         where: { id: id },
-//       }
-//     );
-//     await updateUsers;
-//     res.json({
-//       status: "Edit success",
-//     });
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send("server error");
-//   }
-// });
 
 // delete data
 router.delete("/delete/:id", async (req, res) => {
@@ -168,7 +142,7 @@ router.delete("/delete/:id", async (req, res) => {
       where: { id: id },
     });
     await deleteUsers;
-    res.json({
+    res.status(200).json({
       status: "delete success",
     });
   } catch (err) {
