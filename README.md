@@ -16,6 +16,8 @@
 
 - URL
   - /registrasi
+- Method
+  - POST
 - Request Body
   - name = string
   - email = string (must be unique)
