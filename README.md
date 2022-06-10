@@ -78,7 +78,7 @@
     "message": "Input Success",
     "data": {
       "id": 248,
-      "location": "bali",
+      "location": "kuta",
       "date": "2022-05-22T00:00:00.000Z",
       "aqi": "20",
       "o3": "12.517",
