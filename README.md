@@ -9,29 +9,86 @@
 - (CC) C2014F1372 - Rossario Catherine Elfrida
 - (CC) C2465F3081 - Ronaldo Baja Pradana
 
-## Endpoint
+# Endpoint
 
-### Register
+## Register
 - URL
   - /registrasi
 - Method
   - POST
 - Request Body
   - name = string 
-  - email = string 
+  - email = string (must be unique)
   - password = string 
 - Response
+  
   ```json
   {
-    "status": 200,
-    "message": "Success",
+    "message": "Registrasi Success"
+  }
+  ```
+  
+## Login
+- URL
+  - /login
+- Method
+  - POST
+- Request Body
+  - email = string (must be unique)
+  - password = string
+- Response
+
+  ```json
+  {
+    "massage": "Login Success",
     "data": {
-        "id": 23,
-        "name": "praksosodwika",
-        "email": "prakosodwika@gmail.com",
-        "password": "$2b$10$Ujn9oogBV8O4Gwj1DXhrYuuVtI7kUENWHP4mFCiv4v4adrJk/JA3C",
-        "updatedAt": "2022-06-08T15:05:34.901Z",
-        "createdAt": "2022-06-08T15:05:34.901Z"
+        "id": 25,
+        "name": "arale",
+        "email": "arale@gmail.com"
     }
   }
   ```
+  
+## Input Data History
+- URL 
+  - /input
+- Method
+  - POST
+- Request Body
+  - location = string
+  - date = datetime
+  - aqi = double
+  - o3 = double 
+  - so2 = double 
+  - no2 = double 
+  - co = double
+  - pm10 = double 
+  - pm25 = double 
+  - temperature = double 
+  - humidity = double 
+  - wind_speed = double
+- Response
+
+  ```json
+  {
+    "message": "Input Success",
+    "data": {
+        "id": 207,
+        "location": " bali",
+        "date": "2022-05-22T00:00:00.000Z",
+        "aqi": " 12",
+        "o3": " 43",
+        "so2": " 10",
+        "no2": " 8",
+        "co": " 19",
+        "pm10": " 56",
+        "pm25": " 65",
+        "temperature": " 0",
+        "humidity": " 0",
+        "wind_speed": " 0",
+        "updatedAt": "2022-06-08T19:29:28.058Z",
+        "createdAt": "2022-06-08T19:29:28.058Z"
+    }
+  }
+  ```
+  
