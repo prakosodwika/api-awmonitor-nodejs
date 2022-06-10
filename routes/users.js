@@ -88,7 +88,7 @@ router.post("/login", async (req, res) => {
     if (account) {
       if (decryptPassword(password, account.password)) {
         return res.status(200).json({
-          massage: "Login Success",
+          message: "Login Success",
           data: user,
         });
       }
