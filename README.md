@@ -1,4 +1,5 @@
 # TIM AWM
+
 - (ML) M2471F3093 - M. Rafli Julian
 - (ML) M2119f1493 - Lusi Aulia Jati
 - (ML) M2004F0250 - Eko Bagus Yanuar
@@ -12,23 +13,25 @@
 # Endpoint
 
 ## Register
+
 - URL
   - /registrasi
 - Method
   - POST
 - Request Body
-  - name = string 
+  - name = string
   - email = string (must be unique)
-  - password = string 
+  - password = string
 - Response
-  
+
   ```json
   {
     "message": "Registrasi Success"
   }
   ```
-  
+
 ## Login
+
 - URL
   - /login
 - Method
@@ -40,17 +43,18 @@
 
   ```json
   {
-    "massage": "Login Success",
+    "message": "Login Success",
     "data": {
-        "id": 25,
-        "name": "arale",
-        "email": "arale@gmail.com"
+      "id": 27,
+      "name": "arale",
+      "email": "arale@gmail.com"
     }
   }
   ```
-  
+
 ## Input Data History
-- URL 
+
+- URL
   - /input
 - Method
   - POST
@@ -58,14 +62,14 @@
   - location = string
   - date = datetime
   - aqi = double
-  - o3 = double 
-  - so2 = double 
-  - no2 = double 
+  - o3 = double
+  - so2 = double
+  - no2 = double
   - co = double
-  - pm10 = double 
-  - pm25 = double 
-  - temperature = double 
-  - humidity = double 
+  - pm10 = double
+  - pm25 = double
+  - temperature = double
+  - humidity = double
   - wind_speed = double
 - Response
 
@@ -73,22 +77,21 @@
   {
     "message": "Input Success",
     "data": {
-        "id": 207,
-        "location": " bali",
-        "date": "2022-05-22T00:00:00.000Z",
-        "aqi": " 12",
-        "o3": " 43",
-        "so2": " 10",
-        "no2": " 8",
-        "co": " 19",
-        "pm10": " 56",
-        "pm25": " 65",
-        "temperature": " 0",
-        "humidity": " 0",
-        "wind_speed": " 0",
-        "updatedAt": "2022-06-08T19:29:28.058Z",
-        "createdAt": "2022-06-08T19:29:28.058Z"
+      "id": 248,
+      "location": "bali",
+      "date": "2022-05-22T00:00:00.000Z",
+      "aqi": "20",
+      "o3": "12.517",
+      "so2": "0.745058",
+      "no2": "2.52761",
+      "co": "0.745058",
+      "pm10": "8.64493",
+      "pm25": "4.82701",
+      "temperature": "24.6",
+      "humidity": "85.5625",
+      "wind_speed": "3.63511",
+      "updatedAt": "2022-06-10T08:08:38.387Z",
+      "createdAt": "2022-06-10T08:08:38.387Z"
     }
   }
   ```
-  
