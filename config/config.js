@@ -1,8 +1,8 @@
 const sequelize = require("sequelize");
-const db = new sequelize("db_awmonitor", "root", "", {
+const db = new sequelize("db-awmonitor", "root", "awm2022", {
   dialect: "mysql",
   dialectOptions: {
-    socketPath: `/cloudsql/awmonitor-351813:asia-southeast2:awmmysql`,
+    socketPath: `/cloudsql/awmonitorc22ce02:asia-southeast1:awmmysql`,
   },
 });
 
